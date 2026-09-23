@@ -18,5 +18,6 @@ assertEqual(fee, 11, 'late fee for 5 days at $2.25/day');
 
 assertEqual(catalog.calculateLateFee(1, 2.25), 0, 'grace period: no fee for 1 day late');
 assertEqual(catalog.calculateLateFee(100, 2.25), 20, 'fee is capped at $20');
+assertEqual(catalog.calculateLateFee(2, 0.40), 1, 'minimum fee is $1 when fee would be less');
 
 process.exitCode = failures > 0 ? 1 : 0;
