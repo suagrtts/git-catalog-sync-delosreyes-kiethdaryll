@@ -16,4 +16,6 @@ assertEqual(catalog.isValidLoan(-1), false, 'a negative days-late value is inval
 const fee = catalog.calculateLateFee(5, 2.25);
 assertEqual(fee, 11, 'late fee for 5 days at $2.25/day');
 
+assertEqual(catalog.calculateLateFee(1, 2.25), 0, 'grace period: no fee for 1 day late');
+
 process.exitCode = failures > 0 ? 1 : 0;
